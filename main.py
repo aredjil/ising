@@ -8,10 +8,10 @@ sys.path.append("./utils/")
 from ising_sethna import IsingModel
 
 def main():
-    with st.sidebar.expander("Simulation Parameters", expanded=True):
-        system_size = st.slider("System size (N x N)", 10, 1000, 100)
+    with st.sidebar.expander("Parameters", expanded=True):
+        system_size = st.slider("System size (N x N)", 10, 100, 10)
         H = st.slider("External Field (H)", -1.0, 1.0, 0.0)
-        n_sweeps = st.slider("Number of Sweeps", 10, 1000, 200)
+        n_sweeps = st.slider("Number of Sweeps", 10, 1000, 10)
 
     st.title(f"Ising Model ({system_size}x{system_size})")
     T_below = 1.5
@@ -31,15 +31,19 @@ def main():
         return np.mean(lattice)  
 
     def energy(lattice, H=0.0):
-        N = lattice.shape[0]
-        J = 1
-        E = 0
-        for i in range(N):
-            for j in range(N):
-                s = lattice[i, j]
-                neighbors = lattice[(i + 1) % N, j] + lattice[i, (j + 1) % N]
-                E += -J * s * neighbors
-        E_total = E - H * lattice.sum()
+        J = 1 
+        spins = lattice 
+        E = -J * np.sum(spins * (np.roll(spins, 1, axis=0) + np.roll(spins, 1, axis=1)))
+        E_total = E - H * np.sum(spins)
+        # N = lattice.shape[0]
+        # J = 1
+        # E = 0
+        # for i in range(N):
+        #     for j in range(N):
+        #         s = lattice[i, j]
+        #         neighbors = lattice[(i + 1) % N, j] + lattice[i, (j + 1) % N]
+        #         E += -J * s * neighbors
+        # E_total = E - H * lattice.sum()
         return E_total
 
     mag_data = np.zeros((len(labels), n_sweeps))
