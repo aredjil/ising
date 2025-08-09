@@ -24,7 +24,7 @@ def main():
     ising_critical = IsingModel(N=system_size, T=T_critical, H=H)
     ising_above = IsingModel(N=system_size, T=T_above, H=H)
 
-    labels = ["below $T_c$", "at $T_c$", "above $T_c$"]
+    labels = [r"below $T_c$", r"at $T_c$", r"above $T_c$"]
     isings = [ising_below, ising_critical, ising_above]
 
     def magnetization(lattice):
@@ -100,7 +100,7 @@ def main():
             ax.grid(True)
             ax.set_xlim(0, n_sweeps)
             for idx, label in enumerate(labels):
-                ax.plot(x, data_array[idx, :sweep+1], label=fr"{label}")
+                ax.plot(x, data_array[idx, :sweep+1], label=label)
             ax.set_xlabel("Number of Sweeps")
             ax.legend()
 
