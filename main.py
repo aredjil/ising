@@ -100,7 +100,7 @@ def main():
             ax.grid(True)
             ax.set_xlim(0, n_sweeps)
             for idx, label in enumerate(labels):
-                ax.plot(x, data_array[idx, :sweep+1], label=label)
+                ax.plot(x, data_array[idx, :sweep+1], label=fr"{label}")
             ax.legend()
 
         plt.tight_layout()
