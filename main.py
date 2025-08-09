@@ -24,7 +24,7 @@ def main():
     ising_critical = IsingModel(N=system_size, T=T_critical, H=H)
     ising_above = IsingModel(N=system_size, T=T_above, H=H)
 
-    labels = ["below $T_c$", "at Tc", "above Tc"]
+    labels = ["below T_c", "at Tc", "above Tc"]
     isings = [ising_below, ising_critical, ising_above]
 
     def magnetization(lattice):
