@@ -183,7 +183,8 @@ $$
 
 so that $\mathbf{X}$ has dimensions $M \times N^2$. Here, $M$ is the number of samples and $N^2$ is the number of features (spins).  
 
->**NOTE:** The features of the data are the spin sites. In the dataset each one of the $50$ temperature has $770$ samples of the configuration at equilibrium. The dataset has $50 \times 770 = 38500$ rows and $2500$ columns. 
+> [!NOTE] 
+> The features of the data are the spin sites. In the dataset each one of the $50$ temperature has $770$ samples of the configuration at equilibrium. The dataset has $50 \times 770 = 38500$ rows and $2500$ columns. 
 
 Clearly, the data lives in a **high-dimensional space**. However, in many physical systems, the relevant structure is captured by a much smaller number of effective degrees of freedom. PCA seeks to find a **low-dimensional representation** of the data that preserves as much of the original variance as possible.  
 
@@ -209,7 +210,8 @@ where \(\lambda_i\) are the eigenvalues and \(\mathbf{v}_i\) the eigenvectors. T
   <a href="https://commons.wikimedia.org/w/index.php?curid=46871195">link</a></em></p>
 </div>
 
-> **Note:** Earlier we flattened the Ising lattice into a 1D vector, so each configuration \(\mathbf{S}_i\) can be treated directly as a feature vector in this analysis.  
+> [!NOTE] 
+> Earlier we flattened the Ising lattice into a 1D vector, so each configuration \(\mathbf{S}_i\) can be treated directly as a feature vector in this analysis.  
 
 Visualizing the explained variance ratio of the Ising dataset versus the component index using $10$ principal components:
 
