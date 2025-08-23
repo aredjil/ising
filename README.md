@@ -89,6 +89,7 @@ $$
 Where $\beta$ is the inverse temperature $\beta = \frac{1}{k_B T}$. We take $k_B=1$. All the statistics of the model at equilibrium could be derived from the partition function.
 
 The probability of observing a configuration $\mathbf{S}$ at temperature $T$ is given by the Boltzmann distribution:
+
 $$
 P(\mathbf{S}) = \frac{e^{-\beta \mathcal{H}}}{\mathcal{Z}}
 $$
