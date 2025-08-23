@@ -29,16 +29,24 @@ The code is fairly simple and self-explanatory. To use it, simply create a conda
 conda env create -f env.yaml
 ```
 
-or or, alternatively:
+or , alternatively:
 ```bash
 conda create --name ising_env python=3.11
 conda activate ising_env
 conda install --file requirements.txt
 ```
 
+Using `venv`
+
+```bash
+python3 -m venv ising_env
+source ising_env/bin/activate
+pip install -r requirements.txt
+```
+
 The scripts to generate the data and plots are located in the [scripts](./scripts/) directory.
 
-> **NOTE**: I used the *Wolff* algorithm from [this repository](https://github.com/fontclos/stat-mech-python-course/blob/master/code/ising_sethna.py).
+>[!NOTE] I used the *Wolff* algorithm from [this repository](https://github.com/fontclos/stat-mech-python-course/blob/master/code/ising_sethna.py).
 
 ## Introduction 
 
