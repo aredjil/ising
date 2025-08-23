@@ -159,7 +159,7 @@ $$
 \mathcal{D}=\{\mathbf{S}_i\}_{i=1}^{M}.
 $$
 
-In our case, each \(\mathbf{S}_i\) is a sampled Ising configuration at equilibrium. We organize these samples into the so-called **design matrix**:
+In our case, each $\mathbf{S}_i$ is a sampled Ising configuration at equilibrium. We organize these samples into the so-called **design matrix**:
 
 $$
 \mathbf{X} = 
@@ -171,9 +171,9 @@ $$
 \end{bmatrix},
 $$
 
-so that \(\mathbf{X}\) has dimensions \(M \times N^2\). Here, \(M\) is the number of samples and \(N^2\) is the number of features (spins).  
+so that $\mathbf{X}$ has dimensions $M \times N^2$. Here, $M$ is the number of samples and $N^2$ is the number of features (spins).  
 
->**NOTE:** The features of the data are the spin sites. In the dataset each temperature has $770$ samples of the configuration at equilibrium. The dataset has $38500$ rows and $2500$ columns. 
+>**NOTE:** The features of the data are the spin sites. In the dataset each one of the $50$ temperature has $770$ samples of the configuration at equilibrium. The dataset has $50 \times 770 = 38500$ rows and $2500$ columns. 
 
 Clearly, the data lives in a **high-dimensional space**. However, in many physical systems, the relevant structure is captured by a much smaller number of effective degrees of freedom. PCA seeks to find a **low-dimensional representation** of the data that preserves as much of the original variance as possible.  
 
@@ -201,6 +201,15 @@ where \(\lambda_i\) are the eigenvalues and \(\mathbf{v}_i\) the eigenvectors. T
 
 > **Note:** Earlier we flattened the Ising lattice into a 1D vector, so each configuration \(\mathbf{S}_i\) can be treated directly as a feature vector in this analysis.  
 
+Visualizing the explained variance ratio of the Ising dataset versus the component index using $10$ principal components:
+
+<div align="center">
+  <img src="./figs/explained_variance_50.png" />
+</div>
+
+We notice that most of the variance in the data is captured by the first principal component. Therefore, I will be using only the first two components.
+
+
 Below is the result of applying PCA to the Ising model with lattice size \(50 \times 50\):
 
 <div align="center">
@@ -215,7 +224,7 @@ When visualizing the **average of the first principal component** across lattice
   <img src="./figs/pc1.png" />
 </div>
 
-This shows that the **first principal component** behaves analogously to the **magnetization** \(\langle M \rangle\) of the Ising model. In other words, PCA automatically extracts the order parameter of the system, separating the ordered and disordered phases without prior knowledge of the physics.
+This shows that the **first principal component** behaves analogously to the **magnetization** \(\langle M \rangle\) of the Ising model. In other words, PCA automatically extracts the order parameter of the system, separating the ordered and disordered phases without prior knowledge of the physics. 
 
 Now, visualizing the **second principal component**, we observe that it behaves similarly to the **susceptibility**:
 
@@ -224,6 +233,19 @@ Now, visualizing the **second principal component**, we observe that it behaves 
 </div>
 
 This indicates that PCA not only identifies the order parameter (magnetization) through the first component, but also captures the fluctuations near the critical temperature through the second component.
+
+
+## Interesting Extensions
+
+I performed a similar analysis on the data using non-linear dimensionality reduction techniques, namely t-SNE and UMAP. The resulting visualizations show that the phase transition is also captured. 
+
+<div align="center">
+  <img src="./figs/tnse_50.png" width="400"/>
+  <img src="./figs/umap_50.png" width="400"/>
+</div>
+
+Since these techniques capture both local and global structure, the circular shape of the figures may indicate that the algorithms captured the symmetry of the system.
+
 
 ## References
 - Chapter 19 on Statistical mechanics [Lectures on probability, information and large scale behaviour](https://library.oapen.org/handle/20.500.12657/103990) 
