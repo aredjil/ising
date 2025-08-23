@@ -155,13 +155,13 @@ The magnetization captures this behavior, as the degenerate ground states appear
 
 Principal Component Analysis (PCA) is an **unsupervised learning technique** used for linear dimensionality reduction. The algorithm starts with a dataset of \(M\) unlabeled samples:
 
-\[
+$$
 \mathcal{D}=\{\mathbf{S}_i\}_{i=1}^{M}.
-\]
+$$
 
 In our case, each \(\mathbf{S}_i\) is a sampled Ising configuration at equilibrium. We organize these samples into the so-called **design matrix**:
 
-\[
+$$
 \mathbf{X} = 
 \begin{bmatrix}
 \mathbf{S}_1 \\
@@ -169,7 +169,7 @@ In our case, each \(\mathbf{S}_i\) is a sampled Ising configuration at equilibri
 \vdots \\
 \mathbf{S}_M
 \end{bmatrix},
-\]
+$$
 
 so that \(\mathbf{X}\) has dimensions \(M \times N^2\). Here, \(M\) is the number of samples and \(N^2\) is the number of features (spins).  
 
@@ -185,11 +185,11 @@ Both viewpoints lead naturally to PCA (see [Bishop, *Pattern Recognition and Mac
 
 Formally, PCA identifies the eigenvectors of the data covariance matrix \(\boldsymbol{\Sigma}\):
 
-\[
+$$
 \boldsymbol{\Sigma} = \frac{1}{M-1}\,\mathbf{X}^T \mathbf{X}, 
 \quad
 \boldsymbol{\Sigma}\,\mathbf{v}_i = \lambda_i \mathbf{v}_i,
-\]
+$$
 
 where \(\lambda_i\) are the eigenvalues and \(\mathbf{v}_i\) the eigenvectors. The eigenvalues are ordered \(\lambda_1 \geq \lambda_2 \geq \dots\), so the **first principal component** corresponds to the direction of maximum variance, the second to the next-largest variance, and so on.  
 
