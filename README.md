@@ -46,7 +46,8 @@ pip install -r requirements.txt
 
 The scripts to generate the data and plots are located in the [scripts](./scripts/) directory.
 
->[!NOTE] I used the *Wolff* algorithm from [this repository](https://github.com/fontclos/stat-mech-python-course/blob/master/code/ising_sethna.py).
+> [!NOTE] 
+> I used the *Wolff* algorithm from [this repository](https://github.com/fontclos/stat-mech-python-course/blob/master/code/ising_sethna.py).
 
 ## Introduction 
 
