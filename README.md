@@ -14,6 +14,7 @@
 - [Sampling the Ising lattice at Equilibrium](#sampling-the-ising-lattice-at-equilibrium)
 - [Numerical Results](#numerical-results)
 - [Principal Component Analysis (PCA)](#principal-component-analysis-pca)
+- [Interesting Extensions](#interesting-extensions)
 - [References](#references)
 
 
