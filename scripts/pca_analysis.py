@@ -6,7 +6,8 @@ import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 
 def main():
-    Ns = [20, 30, 40, 50]
+    # Ns = [20, 30, 40, 50]
+    Ns = [50]
     markers = [
         "s", 
         "o", 
@@ -48,34 +49,46 @@ def main():
         all_lattices = np.array(all_lattices)
         print("All lattices shape:", all_lattices.shape)
 
-        pca = PCA(n_components=2)
+        pca = PCA(n_components=10)
         lattices_pca = pca.fit_transform(all_lattices)
 
         # Split PCA results per temperature
-        pc1_split = np.split(lattices_pca[:,0], np.cumsum(samples_per_T)[:-1])
-        pc2_split = np.split(lattices_pca[:,1], np.cumsum(samples_per_T)[:-1])
+        # pc1_split = np.split(lattices_pca[:,0], np.cumsum(samples_per_T)[:-1])
+        # pc2_split = np.split(lattices_pca[:,1], np.cumsum(samples_per_T)[:-1])
 
-        # Average per temperature
-        mean_pc1_per_T = np.array([arr.mean() for arr in pc1_split])
-        mean_pc2_per_T = np.array([arr.mean() for arr in pc2_split])
+        # # Average per temperature
+        # mean_pc1_per_T = np.array([arr.mean() for arr in pc1_split])
+        # mean_pc2_per_T = np.array([arr.mean() for arr in pc2_split])
 
-        # Scatter plot colored by temperature
-        temps_for_samples = np.concatenate([np.full(n, T[i]) for i, n in enumerate(samples_per_T)])
+        # # Scatter plot colored by temperature
+        # temps_for_samples = np.concatenate([np.full(n, T[i]) for i, n in enumerate(samples_per_T)])
 
-        pc1 = lattices_pca[:,0]
-        pc1 = pc1.reshape(50, -1).mean(axis=1) / N
-        pc2 = np.abs(lattices_pca[:,1])
-        pc2 = pc2.reshape(50, -1).mean(axis=1) / N
-        ax[i].scatter(T, pc1, label=f"{N}", marker=markers[i], facecolors='none', edgecolors=colors[i])
-        ax[i].set_title(f"{N}x{N} Ising lattice")
-        ax[i].set_ylabel(r'$<p_1> / N$')
-        ax[i].set_xlabel("T")
+        # pc1 = lattices_pca[:,0]
+        # pc1 = pc1.reshape(50, -1).mean(axis=1) / N
+        # pc2 = np.abs(lattices_pca[:,1])
+        # pc2 = pc2.reshape(50, -1).mean(axis=1) / N
+        # ax[i].scatter(T, pc1, label=f"{N}", marker=markers[i], facecolors='none', edgecolors=colors[i])
+        # ax[i].set_title(f"{N}x{N} Ising lattice")
+        # ax[i].set_ylabel(r'$<p_1> / N$')
+        # ax[i].set_xlabel("T")
 
-        ax[i].legend(loc="best", edgecolor="black", title="N")
+        # ax[i].legend(loc="best", edgecolor="black", title="N")
+        
+        # plt.figure(figsize=(6,4))
+        # plt.bar(range(1, len(pca.explained_variance_ratio_)+1), 
+        
+        # pca.explained_variance_ratio_,color="red")
+        # plt.title(f"Explained Variance Ratio - {N}x{N}")
+        # plt.xlabel("Principal Component")
+        # plt.ylabel("Explained Variance Ratio")
+        # plt.grid(True)
+        # plt.savefig(f"./figs/explained_variance_{N}.png")
+        # plt.show()
+        # plt.close()
         i+=1
-    plt.tight_layout()
-    plt.savefig(f"./figs/pc1.png")
-    plt.show()
+    # plt.tight_layout()
+    # plt.savefig(f"./figs/pc1.png")
+    # plt.show()
 if __name__ == "__main__":
     main()
 
