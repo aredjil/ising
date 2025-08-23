@@ -66,7 +66,7 @@ $$
 \mathbf{S} = (S_1, S_2,\dots, S_{N^2}),  S_i \in \{-1, 1\}
 $$
 
-So $|\mathbf{S}^i| = N^2$.
+So $|\mathbf{S}| = N^2$.
 
 The energy of the system is given by 
 
